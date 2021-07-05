@@ -1,0 +1,18 @@
+nav {
+  position: fixed;
+  left: 0%;
+  z-index: 10;
+  transition: all 1s ease;
+  background-color: #223070;
+  // display: none;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 1rem;
+  margin: 0.2rem 1rem;
+  cursor: pointer;
+}
+.active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
