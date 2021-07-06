@@ -7,7 +7,7 @@ import {
   faTasks,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { ClosingSoon } from 'src/app/interfaces/ClosingSoon.model';
+import { ClosingSoon } from '../../interfaces/ClosingSoon.model';
 
 @Component({
   selector: 'app-dashboard',
