@@ -83,107 +83,32 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>Smith John</th>
-          <th>123 anywherelane hamilton</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon
-            ><fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon>12/47
-          </th>
-          <th class="text-center In-progress">In-progress</th>
-          <th class="text-center">June 13,2021</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faCheck" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">$850,499</th>
-        </tr>
-        <tr>
-          <th>Hanson, Bob</th>
-          <th>5645 Homewood Road. Toronto</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon
-            ><fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon>0/26
-          </th>
-          <th class="text-center Draft">Draft</th>
-          <th class="text-center">June 13,2021</th>
+        <tr *ngFor="let item of closingSoonData">
+          <th>{{ item.name }}</th>
+          <th>{{ item.address }}</th>
           <th class="text-center">
             <fa-icon
               class="m-1"
-              [icon]="faError"
-              style="color: red"
+              [icon]="faUserCircle"
               size="1x"
-            ></fa-icon>
-          </th>
-          <th class="text-center">$850,499</th>
-        </tr>
-        <tr>
-          <th>Black, Eboni</th>
-          <th>215 Smoky Hollow Ave, Mississaunga</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon>8/32
-          </th>
-          <th class="text-center In-progress">In-progress</th>
-          <th class="text-center">
-            May 2,2021
-            <fa-icon
-              class="m-1"
-              [icon]="faError"
-              style="color: red"
-              size="1x"
+              *ngFor="let in of counter(item.stackHolder); let i = index"
             ></fa-icon>
           </th>
           <th class="text-center">
-            <fa-icon class="m-1" [icon]="faCheck" size="1x"></fa-icon>
+            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon
+            >{{ item.activetask }}/{{ item.totalTask }}
           </th>
-          <th class="text-center">$850,499</th>
-        </tr>
-        <tr>
-          <th>Chan, Tobias</th>
-          <th>9080 ROck Maple Drive, London</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon
-            ><fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon>0/26
-          </th>
-          <th class="text-center Draft">Draft</th>
-          <th class="text-center">-</th>
+          <th class="text-center {{ item.status }}">{{ item.status }}</th>
+          <th class="text-center">{{ item.closingDate }}</th>
           <th class="text-center">
             <fa-icon
               class="m-1"
-              [icon]="faError"
-              style="color: red"
+              [icon]="item.termMet ? faCheck : faError"
+              [ngStyle]="{ color: item.termMet ? 'black' : 'red' }"
               size="1x"
             ></fa-icon>
           </th>
-          <th class="text-center">$850,499</th>
-        </tr>
-        <tr>
-          <th>Richardson, Dina</th>
-          <th>857 Pine Street, Toronto</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faTasks" size="1x"></fa-icon>35/35
-          </th>
-          <th class="text-center Completed">Completed</th>
-          <th class="text-center">June 13,2021</th>
-          <th class="text-center">
-            <fa-icon class="m-1" [icon]="faCheck" size="1x"></fa-icon>
-          </th>
-          <th class="text-center">$850,499</th>
+          <th class="text-center">${{ item.salePrice }}</th>
         </tr>
       </tbody>
     </table>

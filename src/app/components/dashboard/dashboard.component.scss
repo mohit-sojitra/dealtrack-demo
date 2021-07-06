@@ -50,6 +50,9 @@ tbody {
   th:first-child {
     border-left: 0.5rem solid #223070;
   }
+  th:last-child{
+    border-right: 0.5rem solid rgb(185, 184, 184);
+  }
 }
 
 .In-progress {
