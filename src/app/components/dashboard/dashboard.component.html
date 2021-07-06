@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-2 border p-0">
       <div class="p-2 border-bottom">
-        <p class="text-info-name">Open Deals</p>
+        <p class="text-info-name">Open deals</p>
         <p class="text-info-green">6</p>
       </div>
       <div class="info-div">
@@ -32,6 +32,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-2 border p-0">
       <div class="p-2 border-bottom">
         <p class="text-info-name">Draft Deals</p>
@@ -39,12 +40,12 @@
       </div>
       <div class="info-div">
         <div class="d-flex justify-content-between p-2">
-          <p class="m-0">Due soon</p>
-          <p class="m-0">1</p>
+          <p class="m-0"><a href="">Go to draft</a></p>
+          <!-- <p class="m-0">1</p> -->
         </div>
         <div class="d-flex justify-content-between p-2 pt-0">
-          <p class="m-0">Uploaded today</p>
-          <p class="m-0">2</p>
+          <p class="m-0"></p>
+          <p class="m-0">-</p>
         </div>
       </div>
     </div>
@@ -55,12 +56,12 @@
       </div>
       <div class="info-div">
         <div class="d-flex justify-content-between p-2">
-          <p class="m-0">Due soon</p>
-          <p class="m-0">1</p>
+          <p class="m-0"><a href="">View deals</a></p>
+          <!-- <p class="m-0">1</p> -->
         </div>
         <div class="d-flex justify-content-between p-2 pt-0">
-          <p class="m-0">Uploaded today</p>
-          <p class="m-0">2</p>
+          <p class="m-0"></p>
+          <p class="m-0">-</p>
         </div>
       </div>
     </div>
@@ -68,16 +69,70 @@
   <div class="container-fluid mt-4">
     <button class="btn create-deal-btn">Create Deal</button>
   </div>
-  <div class="container-fluid mt-4">
+  <div class="container-fluid table-div mt-4">
     <table class="table">
       <thead>
         <tr>
           <th col="col">Closing Soon <a href="">view all</a></th>
           <th col="col">Address</th>
-          <th col="col">Stackholder</th>
-          <th col="col">Tasks</th>
+          <th
+            col="col"
+            [ngClass]="{ active: sortedby.includes('stackHolder') }"
+            (click)="sortViaStackHolder()"
+          >
+            Stackholder
+            <fa-icon
+              *ngIf="sortedby === 'stackHolderDesc'"
+              class="m-1"
+              [icon]="faUp"
+              size="xs"
+            ></fa-icon>
+            <fa-icon
+              *ngIf="sortedby === 'stackHolderAsc'"
+              class="m-1"
+              [icon]="faDown"
+              size="xs"
+            ></fa-icon>
+          </th>
+          <th
+            col="col"
+            [ngClass]="{ active: sortedby.includes('activeTask') }"
+            (click)="sortViaActiveTask()"
+          >
+            Tasks
+            <fa-icon
+              *ngIf="sortedby === 'activeTaskDesc'"
+              class="m-1"
+              [icon]="faUp"
+              size="xs"
+            ></fa-icon>
+            <fa-icon
+              *ngIf="sortedby === 'activeTaskAsc'"
+              class="m-1"
+              [icon]="faDown"
+              size="xs"
+            ></fa-icon>
+          </th>
           <th col="col">Status</th>
-          <th col="col">Closing Date</th>
+          <th
+            col="col "
+            [ngClass]="{ active: sortedby.includes('closingDate') }"
+            (click)="sortViaDateHandler()"
+          >
+            Closing Date
+            <fa-icon
+              *ngIf="sortedby === 'closingDateDesc'"
+              class="m-1"
+              [icon]="faUp"
+              size="xs"
+            ></fa-icon>
+            <fa-icon
+              *ngIf="sortedby === 'closingDateAsc'"
+              class="m-1"
+              [icon]="faDown"
+              size="xs"
+            ></fa-icon>
+          </th>
           <th col="col">Term Met</th>
           <th col="col">Sale Price</th>
         </tr>
@@ -99,7 +154,9 @@
             >{{ item.activetask }}/{{ item.totalTask }}
           </th>
           <th class="text-center {{ item.status }}">{{ item.status }}</th>
-          <th class="text-center">{{ item.closingDate }}</th>
+          <th class="text-center">
+            {{ item.closingDate.toLocaleDateString("en", dateFormat) }}
+          </th>
           <th class="text-center">
             <fa-icon
               class="m-1"
@@ -113,7 +170,7 @@
       </tbody>
     </table>
   </div>
-  <div class="container-fluid mt-4">
+  <div class="container-fluid table-div mt-4">
     <table class="table">
       <thead>
         <tr>

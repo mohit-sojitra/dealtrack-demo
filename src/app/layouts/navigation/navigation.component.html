@@ -1,6 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light h-100 align-items-start">
-  <div class="d-flex flex-column justify-content-start nav-div">
-    <div class="collapse navbar-collapse d-flex flex-column" id="navbarText">
+<button class="btn btn-default btn-lg" (click)="toggleNavBar()">
+  <span class="toggle toggle-nav" aria-hidden="true"></span>
+</button>
+<nav
+  class="
+    navbar navbar-expand-lg navbar-light
+    h-100
+    align-items-start
+    mobile-navbar
+  "
+  [ngClass]="{ 'mobile-navbar': isNavBarOpen }"
+>
+  <div class="d-flex flex-column justify-content-start nav-div w-100">
+    <div
+      class="collapse navbar-collapse d-flex flex-column w-100"
+      id="navbarText"
+    >
       <ul class="navbar-nav d-flex flex-column mt-4">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page"

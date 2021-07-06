@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserModel } from '../../../interfaces/user.model';
 import { AuthService } from '../../../services/auth.service';
@@ -8,15 +8,12 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   public isLoading = false;
   public error = null;
   constructor(private authService: AuthService, private router: Router) {
     this.checkLoginStatus();
   }
-
-  ngOnInit(): void {}
-
   public onSubmitHandler(loginForm): void {
     this.isLoading = true;
     this.authService

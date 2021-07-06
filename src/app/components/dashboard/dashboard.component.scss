@@ -39,6 +39,11 @@ thead {
     font-weight: 450;
     text-align: center;
     border-bottom: none !important;
+    cursor: pointer;
+  }
+  th.active {
+    background-color: rgb(196, 196, 196);
+    color: black;
   }
   th:first-child {
     text-align: left;
@@ -50,7 +55,7 @@ tbody {
   th:first-child {
     border-left: 0.5rem solid #223070;
   }
-  th:last-child{
+  th:last-child {
     border-right: 0.5rem solid rgb(185, 184, 184);
   }
 }
@@ -61,13 +66,13 @@ tbody {
   color: black;
 }
 .Completed {
-  background-color: rgb(4, 170, 109);
-  border-right: 0.5rem solid rgb(83, 175, 141);
+  background-color: rgb(22, 170, 116);
+  border-right: 0.5rem solid rgb(109, 172, 149);
   color: white;
 }
 .Blocked {
-  background-color: rgb(255, 52, 52);
-  border-right: 0.5rem solid rgb(255, 136, 136);
+  background-color: rgb(252, 69, 69);
+  border-right: 0.5rem solid rgb(255, 159, 159);
   color: white;
 }
 
@@ -75,4 +80,7 @@ tbody {
   color: white;
   border-radius: 0.2rem;
   background-color: #8651de;
+}
+.table-div {
+  overflow-x: auto;
 }

@@ -5,7 +5,7 @@ export interface ClosingSoon {
   activetask: number;
   totalTask: number;
   status: string;
-  closingDate: string;
+  closingDate: Date;
   termMet: boolean;
   salePrice: number;
 }
