@@ -4,13 +4,14 @@ nav {
   z-index: 10;
   transition: all 1s ease;
   background-color: #223070;
+  padding: 0;
   // display: none;
 }
 
 .nav-link {
   color: white !important;
-  font-size: 1rem;
-  margin: 0.2rem 1rem;
+  font-size: 0.9rem;
+  margin: 0.2rem 0.8rem;
   cursor: pointer;
 }
 .active {
