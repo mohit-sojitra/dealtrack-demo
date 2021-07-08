@@ -1,4 +1,4 @@
-<button class="btn btn-default btn-lg" (click)="toggleNavBar()">
+<button class="btn btn-default btn-lg" (click)="this.isNavBarOpen = !this.isNavBarOpen">
   <span class="toggle toggle-nav" aria-hidden="true"></span>
 </button>
 <nav
@@ -18,28 +18,22 @@
       <ul class="navbar-nav d-flex flex-column mt-4">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page"
-            ><fa-icon class="m-2" [icon]="faHome" size="x"></fa-icon
-            >Dashboard </a
+            ><i class="fas fa-home"></i> Dashboard </a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page"
-            ><fa-icon
-              class="m-2"
-              [icon]="faHandshakeAltSlash"
-              size="x"
-            ></fa-icon
-            >Deals</a
+            > <i class="fas fa-handshake"></i> Deals</a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page"
-            ><fa-icon class="m-2" [icon]="faTasks" size="x"></fa-icon>Tasks</a
+            ><i class="fas fa-tasks"></i> Tasks</a
           >
         </li>
         <li class="nav-item">
           <a style="cursor: pointer" class="nav-link"
-            ><fa-icon class="m-2" [icon]="faCog" size="x"></fa-icon>Profile
+            ><i class="fas fa-cog"></i> Profile
             Settings</a
           >
         </li>

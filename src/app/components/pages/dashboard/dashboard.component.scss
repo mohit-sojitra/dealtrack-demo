@@ -1,11 +1,11 @@
 .info-div {
-  background-color: rgb(247, 244, 244);
+  background-color: #f7f4f4;
   p {
     font-size: 0.8rem;
   }
 }
 .text-info-green {
-  color: rgb(0, 190, 0);
+  color: #00be00;
   font-size: 2rem;
   margin: 0;
   padding: 0;
@@ -41,8 +41,13 @@ thead {
     border-bottom: none !important;
     cursor: pointer;
   }
+  th:hover {
+    background-color: #f5f4f4;
+    border-radius: 0.2rem;
+  }
   th.active {
-    background-color: rgb(196, 196, 196);
+    background-color: #c4c4c4;
+    border-radius: 0.2rem;
     color: black;
   }
   th:first-child {
@@ -51,41 +56,45 @@ thead {
 }
 
 tbody {
-  background-color: rgb(247, 244, 244);
+  background-color: #f7f4f4;
   th:first-child {
     border-left: 0.5rem solid #223070;
   }
   th:last-child {
-    border-right: 0.5rem solid rgb(185, 184, 184);
+    border-right: 0.5rem solid #b9b8b8;
   }
 }
 
 .In-progress {
-  background-color: rgb(255, 255, 116);
-  border-right: 0.5rem solid rgb(255, 255, 181);
-  color: black;
+  background-color: #ffff74;
+  border-right: 0.5rem solid #ffffb5;
+  color: #000000;
 }
 .Draft {
-  background-color: rgb(224, 224, 224);
-  border-right: 0.5rem solid rgb(240, 240, 240);
-  color: black;
+  background-color: #e0e0e0;
+  border-right: 0.5rem solid #f0f0f0;
+  color: #000000;
 }
 .Completed {
-  background-color: rgb(22, 170, 116);
-  border-right: 0.5rem solid rgb(128, 177, 159);
-  color: white;
+  background-color: #16aa74;
+  border-right: 0.5rem solid #80b19f;
+  color: #ffffff;
 }
 .Blocked {
-  background-color: rgb(252, 69, 69);
-  border-right: 0.5rem solid rgb(255, 159, 159);
-  color: white;
+  background-color: #fc4545;
+  border-right: 0.5rem solid #ff9f9f;
+  color: #ffffff;
 }
 
 .action-cell:not(:empty) {
-  color: white;
+  color: #ffffff;
   border-radius: 0.2rem;
   background-color: #8651de;
 }
 .table-div {
   overflow-x: auto;
+}
+
+i {
+  margin: 0 0.2rem;
 }

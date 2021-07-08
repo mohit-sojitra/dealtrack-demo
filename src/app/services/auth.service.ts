@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserModel } from '../interfaces/user.model';
+import { UserModel } from '../models/user.model';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 @Injectable({

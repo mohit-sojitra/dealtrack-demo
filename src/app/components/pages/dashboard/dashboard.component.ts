@@ -7,7 +7,7 @@ import {
   faTasks,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { ClosingSoon } from '../../interfaces/ClosingSoon.model';
+import { ClosingSoon } from '../../../models/closing-soon.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,19 +15,13 @@ import { ClosingSoon } from '../../interfaces/ClosingSoon.model';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  faUserCircle = faUserCircle;
-  faTasks = faTasks;
-  faCheck = faCheck;
-  faError = faExclamationCircle;
-  faUp = faChevronUp;
-  faDown = faChevronDown;
   dateFormat = {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   };
   closingSoonData: ClosingSoon[] = [];
-  sortedby: string = '';
+  sortedby = '';
   constructor() {
     this.closingSoonData.push({
       name: 'Smith John',

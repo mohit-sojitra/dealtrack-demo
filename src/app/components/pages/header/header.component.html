@@ -11,6 +11,7 @@
   <div><h4>Dealtrack</h4></div>
   <div class="dropdown">
     <button
+      (click)="isUserDropdownVisibile = !isUserDropdownVisibile"
       class="btn dropdown-toggle"
       type="button"
       id="dropdownMenuButton"
@@ -20,15 +21,19 @@
     >
       Test company 123
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
+    <div
+      class="dropdown-menu"
+      aria-labelledby="dropdownMenuButton"
+      [ngStyle]="{ display: isUserDropdownVisibile ? 'block' : 'none' }"
+    >
+      <a class="dropdown-item">Action</a>
+      <a class="dropdown-item">Another action</a>
+      <a class="dropdown-item">Something else here</a>
     </div>
   </div>
-  
+
   <div>
-    <fa-icon class="m-1" [icon]="faBell" size="1x"></fa-icon>
-    <fa-icon class="m-1" [icon]="faUserCircle" size="1x"></fa-icon>
+    <i class="fas fa-bell"></i> 
+    <i class="fas fa-user-circle"></i>
   </div>
 </nav>
