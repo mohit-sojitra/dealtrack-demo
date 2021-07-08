@@ -1,12 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  faCheck,
-  faChevronDown,
-  faChevronUp,
-  faExclamationCircle,
-  faTasks,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
 import { ClosingSoon } from '../../../models/closing-soon.model';
 
 @Component({
