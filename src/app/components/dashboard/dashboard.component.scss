@@ -65,9 +65,14 @@ tbody {
   border-right: 0.5rem solid rgb(255, 255, 181);
   color: black;
 }
+.Draft {
+  background-color: rgb(224, 224, 224);
+  border-right: 0.5rem solid rgb(240, 240, 240);
+  color: black;
+}
 .Completed {
   background-color: rgb(22, 170, 116);
-  border-right: 0.5rem solid rgb(109, 172, 149);
+  border-right: 0.5rem solid rgb(128, 177, 159);
   color: white;
 }
 .Blocked {
