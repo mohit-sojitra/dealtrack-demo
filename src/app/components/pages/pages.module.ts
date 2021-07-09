@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { HeaderComponent } from './header/header.component';
+import { NavigationComponent } from '../../layouts/navigation/navigation.component';
+import { HeaderComponent } from '../../layouts/header/header.component';
 
 @NgModule({
   declarations: [

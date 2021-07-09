@@ -1,65 +1,64 @@
-<body>
-  <div id="login">
-    <div class="container">
-      <div id="login-row" class="row justify-content-center align-items-center">
-        <div id="login-column" class="col-md-6">
-          <div id="login-box" class="col-md-12">
-            <br />
-            <form (ngSubmit)="onSubmitHandler(loginForm)" #loginForm="ngForm">
-              <h3 class="text-center text-info">Login</h3>
-              <h3 class="text-center text-danger" *ngIf="error">{{error.error}}</h3>
-              <br />
-              <div class="form-group">
-                <label for="username" class="text-info">Email:</label><br />
-                <input
-                  required
-                  type="text"
-                  name="email"
-                  id="email"
-                  class="form-control"
-                  ngModel
-                  #email="ngModel"
-                  pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-                />
-                <small
-                  class="text-danger"
-                  *ngIf="email.invalid && email.touched"
-                  >Invalid email</small
-                >
-              </div>
-              <div class="form-group">
-                <label for="password" class="text-info">Password:</label><br />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  class="form-control"
-                  ngModel
-                  #password="ngModel"
-                  minlength="6"
-                  required
-                />
-                <small
-                  class="text-danger"
-                  *ngIf="password.invalid && password.touched"
-                  >Short Password</small
-                >
-              </div>
-              <div class="form-group mt-2" *ngIf="!isLoading">
-                <input
-                  type="submit"
-                  name="submit"
-                  class="btn btn-info btn-md"
-                  value="LOGIN"
-                  [disabled]="!loginForm.valid"
-                />
-              </div>
-              <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
-            </form>
-            <small>Email for login : eve.holt@reqres.in</small>
+<div class="container">
+  <div id="login-row" class="row justify-content-center align-items-center">
+    <div id="login-column" class="col-md-6">
+      <div id="login-box" class="col-md-12">
+        <br />
+        <form (ngSubmit)="onSubmitHandler(loginForm)" #loginForm="ngForm">
+          <h3 class="text-center text-info">Login</h3>
+          <h3 class="text-center text-danger" *ngIf="error">
+            {{ error.error }}
+          </h3>
+          <br />
+          <div class="form-group">
+            <label for="username" class="text-info">Email:</label><br />
+            <input
+              required
+              type="text"
+              name="email"
+              id="email"
+              class="form-control"
+              ngModel
+              #email="ngModel"
+              pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+            />
+            <small class="text-danger" *ngIf="email.invalid && email.touched"
+              >Invalid email</small
+            ><br />
+            <label for="password" class="text-info">Password:</label><br />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              ngModel
+              #password="ngModel"
+              minlength="6"
+              required
+            />
+            <small
+              class="text-danger"
+              *ngIf="password.invalid && password.touched"
+              >Short Password</small
+            ><br />
           </div>
-        </div>
+          <div class="form-group mt-2" *ngIf="!isLoading">
+            <input
+              type="submit"
+              name="submit"
+              class="btn btn-info btn-md"
+              value="LOGIN"
+              [disabled]="!loginForm.valid"
+            />
+          </div>
+          <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+        </form>
+        <small
+          ><a [routerLink]="['/signup']"
+            >Don't have an account ? Signup</a
+          ></small
+        ><br />
+        <small>Email for login : eve.holt@reqres.in</small>
       </div>
     </div>
   </div>
-</body>
+</div>

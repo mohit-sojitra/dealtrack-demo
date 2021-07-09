@@ -82,11 +82,11 @@
           >
             Stackholder
             <i
-              class="fas fa-angle-up"
+              class="fa fa-angle-up"
               *ngIf="sortedby === 'stackHolderDesc'"
             ></i>
             <i
-              class="fas fa-angle-down"
+              class="fa fa-angle-down"
               *ngIf="sortedby === 'stackHolderAsc'"
             ></i>
           </th>
@@ -97,11 +97,11 @@
           >
             Tasks
             <i
-              class="fas fa-angle-up"
+              class="fa fa-angle-up"
               *ngIf="sortedby === 'activeTaskDesc'"
             ></i>
             <i
-              class="fas fa-angle-down"
+              class="fa fa-angle-down"
               *ngIf="sortedby === 'activeTaskAsc'"
             ></i>
           </th>
@@ -113,11 +113,11 @@
           >
             Closing Date
             <i
-              class="fas fa-angle-up"
+              class="fa fa-angle-up"
               *ngIf="sortedby === 'closingDateDesc'"
             ></i>
             <i
-              class="fas fa-angle-down"
+              class="fa fa-angle-down"
               *ngIf="sortedby === 'closingDateAsc'"
             ></i>
           </th>
@@ -132,11 +132,11 @@
           <th class="text-center">
             <i
               *ngFor="let in of counter(item.stackHolder)"
-              class="fas fa-user-circle"
+              class="fa fa-user-circle"
             ></i>
           </th>
           <th class="text-center">
-            <i class="fas fa-tasks"></i>
+            <i class="fa fa-tasks"></i>
             {{ item.activetask }}/{{ item.totalTask }}
           </th>
           <th class="text-center {{ item.status }}">{{ item.status }}</th>
@@ -145,7 +145,7 @@
           </th>
           <th class="text-center">
             <i
-              class="fas"
+              class="fa"
               [ngStyle]="{ color: item.termMet ? 'black' : 'red' }"
               [ngClass]="item.termMet ? 'fa-check' : 'fa-exclamation-circle'"
             ></i>
@@ -172,8 +172,8 @@
           <th>Provide copy of proof of deposits</th>
           <th>Smith John-123 Anywhere Lane, Hamilton</th>
           <th class="text-center">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
           </th>
           <th class="text-center In-progress">In-progress</th>
           <th class="text-center">June 13,2021</th>
@@ -185,8 +185,9 @@
           <th>Calculate/collet tax information</th>
           <th>Smith John-123 Anywhere Lane, Hamilton</th>
           <th class="text-center">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
+
+            <i class="fa fa-user-circle"></i>
           </th>
           <th class="text-center Draft">Pending</th>
           <th class="text-center">-</th>
@@ -196,8 +197,8 @@
           <th>Obtain proeprty tax statement</th>
           <th>Richardson, Dina - 857 Pine Street, Toronto</th>
           <th class="text-center">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
           </th>
           <th class="text-center Blocked">Blocked</th>
           <th class="text-center">April 6,2021</th>
@@ -209,8 +210,8 @@
           <th>Perform Inspections</th>
           <th>Smith John-123 Anywhere Lane, Hamilton</th>
           <th class="text-center">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
           </th>
           <th class="text-center Draft">Pending</th>
           <th class="text-center">-</th>
@@ -220,8 +221,8 @@
           <th>Mortgages</th>
           <th>Chan, Tobias - 9080 Rock Maple Drive, London</th>
           <th class="text-center">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-user-circle"></i>
           </th>
           <th class="text-center Completed">Completed</th>
           <th class="text-center">February 7,2021</th>

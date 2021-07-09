@@ -1,26 +1,37 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { UserModel } from '../models/user.model';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  NewUser: UserModel = {
-    email: null,
-    token: null,
-  };
-  public user = new BehaviorSubject<UserModel>(null);
+  private user: UserModel = null;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  login(email: any, password: any): Observable<UserModel> {
-    return this.http.post<UserModel>('https://reqres.in/api/login', {
-      email,
-      password,
-    });
+  public isLoggedIn(): boolean {
+    return !this.user;
+  }
+
+  public login(email: string, password: string): Observable<UserModel> {
+    return this.http
+      .post<UserModel>('https://reqres.in/api/login', {
+        email,
+        password,
+      })
+      .pipe(
+        tap(({ token }) => {
+          const user: UserModel = {
+            email,
+            token,
+          };
+          localStorage.setItem('userData', JSON.stringify(user));
+          this.user = user;
+        })
+      );
   }
 
   public autoLogin(): void {
@@ -32,7 +43,7 @@ export class AuthService {
       return;
     }
     if (userData.token) {
-      this.user.next(userData);
+      this.user = userData;
     }
   }
 }

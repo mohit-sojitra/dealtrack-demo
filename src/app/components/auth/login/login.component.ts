@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserModel } from '../../../models/user.model';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -22,13 +21,7 @@ export class LoginComponent {
         (resData) => {
           this.isLoading = false;
           this.error = null;
-          const user: UserModel = {
-            email: loginForm.value.email,
-            token: resData.token,
-          };
-          this.authService.user.next(user);
-          localStorage.setItem('userData', JSON.stringify(user));
-          this.router.navigate(['/home']);
+          this.router.navigate(['/page']);
         },
         (error) => {
           this.isLoading = false;
@@ -39,8 +32,8 @@ export class LoginComponent {
   }
   checkLoginStatus(): void {
     this.authService.autoLogin();
-    if (this.authService.user.value) {
-      this.router.navigate(['/home']);
+    if (this.authService.isLoggedIn) {
+      this.router.navigate(['/page']);
     }
   }
 }
