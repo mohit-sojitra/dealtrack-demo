@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="h3 pt-2"><i class="fa fa-gear m-2"></i>Task Categories</div>
+  <div class="mt-4 justify-content-end d-flex">
+    <button class="btn create-deal-btn">Create Task Category</button>
+  </div>
+  <div class="mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Tasks</th>
+        </tr>
+      </thead>
+      <tbody cdkDropList (cdkDropListDropped)="onDropTaskCategoriesHandler($event)" >
+        <ng-container *ngFor="let taskCategory of taskCategoriesData">
+          <tr cdkDragLockAxis="y" cdkDrag style="background-color: rgb(212, 212, 212);">
+            <td class="col-xs left-border-blue" cdkDragHandle>
+              <div class="drag-handle">
+                <i class="fa fa-bars"></i>
+              </div>
+            </td>
+            <td class="col-md">{{ taskCategory.name }}</td>
+            <td class="col-md">{{ taskCategory.description }}</td>
+            <td class="col-md">{{ taskCategory.tasks.length }}</td>
+          </tr>
+          <tr>
+            <td colspan="4" style="padding: 1rem">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Task Template</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody cdkDropList #moviesList2="cdkDropList" (cdkDropListDropped)="onDropTaskHandler($event)" >
+                  <tr *ngFor="let task of taskCategory.tasks" cdkDragLockAxis="y" cdkDrag>
+                    <th class="col-xs left-border-grey">
+                      <div class="drag-handle">
+                        <i class="fa fa-bars"></i>
+                      </div>
+                    </th>
+                    <td>{{ task.taskTemplate }}</td>
+                    <td>{{ task.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

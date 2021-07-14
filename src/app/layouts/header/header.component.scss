@@ -1,9 +1,14 @@
-.dropdown:hover {
-    background-color: #f5f4f4;
+.btn:hover {
+    background-color: #d8d8d8;
     border-radius: 0.5rem;
 }
 i {
     padding: 0rem 0.5rem;
     font-size: 1.2rem;
     color: #b9b8b8;
+}
+.btn-light{
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
 }

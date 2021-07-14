@@ -9,6 +9,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { LoadingSpinnerComponent } from './core/loading-spinner/loading-spinner.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

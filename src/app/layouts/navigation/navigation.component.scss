@@ -9,10 +9,11 @@ nav {
 .nav-link {
   color: white !important;
   font-size: 0.9rem;
-  margin: 0.2rem 0.8rem;
+  margin: 0.2rem;
+  padding: 0.4rem;
   cursor: pointer;
 }
-.active {
+.router-link-active {
   background-color: rgba(255, 255, 255, 0.302);
 }
 
