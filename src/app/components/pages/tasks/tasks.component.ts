@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskCategory } from 'src/app/models/task-model';
-import { moveItemInArray, CdkDragDrop } from "@angular/cdk/drag-drop";
+import { moveItemInArray, CdkDragDrop, transferArrayItem } from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
 
   taskCategoriesData: TaskCategory[] = [];
 
@@ -15,6 +15,7 @@ export class TasksComponent implements OnInit {
     this.taskCategoriesData.push({
       name: 'Opening',
       description: 'List of opening tasks',
+      isTaskVisible : false,
       tasks: [
         {
           taskTemplate: 'Pay Land Transfer Tax',
@@ -36,6 +37,7 @@ export class TasksComponent implements OnInit {
     this.taskCategoriesData.push({
       name: 'Closing',
       description: 'List of closing tasks',
+      isTaskVisible : false,
       tasks: [
         {
           taskTemplate: 'Pay Land Transfer Tax',
@@ -58,24 +60,32 @@ export class TasksComponent implements OnInit {
       name: 'Preperation',
       description: 'List of preperation tasks',
       tasks: [],
+      isTaskVisible : false,
     });
     this.taskCategoriesData.push({
       name: 'Post-Closing',
       description: 'List of Post-Closing tasks',
+      isTaskVisible : false,
       tasks: [],
+
     });
-
   }
 
-  ngOnInit(): void {
-    
-  }
   onDropTaskCategoriesHandler(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.taskCategoriesData, event.previousIndex, event.currentIndex);
   }
+
   onDropTaskHandler(event: CdkDragDrop<string[]>) {
-    // moveItemInArray(this.taskCategoriesData, event.previousIndex, event.currentIndex);
-    console.log(event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    }else {
+      console.log('Transfering item to new container')
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
+  
     
   }
 

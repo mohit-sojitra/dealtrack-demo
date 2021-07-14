@@ -2,7 +2,7 @@
   class="btn btn-default btn-lg"
   (click)="this.isNavBarOpen = !this.isNavBarOpen"
 >
-  <span class="toggle toggle-nav" aria-hidden="true"></span>
+<i class="fa fa-bars "></i>
 </button>
 <nav
   class="
@@ -44,6 +44,8 @@
         </li>
         <li class="nav-item">
           <a style="cursor: pointer" class="nav-link"
+          [routerLink]="['/page', 'testing']"
+          routerLinkActive="router-link-active"
             ><i class="fa fa-cog"></i> Profile Settings</a
           >
         </li>

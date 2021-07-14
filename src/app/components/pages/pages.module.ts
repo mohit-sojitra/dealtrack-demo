@@ -8,7 +8,6 @@ import { PagesComponent } from './pages.component';
 import { NavigationComponent } from '../../layouts/navigation/navigation.component';
 import { HeaderComponent } from '../../layouts/header/header.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [

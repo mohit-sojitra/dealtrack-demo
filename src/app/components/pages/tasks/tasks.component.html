@@ -13,21 +13,34 @@
           <th scope="col">Tasks</th>
         </tr>
       </thead>
-      <tbody cdkDropList (cdkDropListDropped)="onDropTaskCategoriesHandler($event)" >
+      <tbody
+        cdkDropList
+        (cdkDropListDropped)="onDropTaskCategoriesHandler($event)"
+        cdkDropListGroup
+      >
         <ng-container *ngFor="let taskCategory of taskCategoriesData">
-          <tr cdkDragLockAxis="y" cdkDrag style="background-color: rgb(212, 212, 212);">
+          <tr
+            cdkDragLockAxis="y"
+            cdkDrag
+            [ngStyle]="{'background-color': taskCategory.isTaskVisible ? '#dfe0e0' : '#FFFFFF'}"
+          >
             <td class="col-xs left-border-blue" cdkDragHandle>
               <div class="drag-handle">
                 <i class="fa fa-bars"></i>
               </div>
             </td>
-            <td class="col-md">{{ taskCategory.name }}</td>
+            <td
+              class="col-md"
+              (click)="taskCategory.isTaskVisible = !taskCategory.isTaskVisible"
+            >
+              {{ taskCategory.name }}
+            </td>
             <td class="col-md">{{ taskCategory.description }}</td>
             <td class="col-md">{{ taskCategory.tasks.length }}</td>
           </tr>
-          <tr>
-            <td colspan="4" style="padding: 1rem">
-              <table class="table">
+          <tr *ngIf="taskCategory.isTaskVisible">
+            <td colspan="4" class="internal-table-td" >
+              <table class="table" *ngIf="taskCategory.tasks.length !== 0">
                 <thead>
                   <tr>
                     <th scope="col"></th>
@@ -35,10 +48,18 @@
                     <th scope="col">Description</th>
                   </tr>
                 </thead>
-                <tbody cdkDropList #moviesList2="cdkDropList" (cdkDropListDropped)="onDropTaskHandler($event)" >
-                  <tr *ngFor="let task of taskCategory.tasks" cdkDragLockAxis="y" cdkDrag>
+                <tbody
+                  cdkDropList
+                  [cdkDropListData]="taskCategory.tasks"
+                  (cdkDropListDropped)="onDropTaskHandler($event)"
+                >
+                  <tr
+                    *ngFor="let task of taskCategory.tasks"
+                    cdkDragLockAxis="y"
+                    cdkDrag
+                  >
                     <th class="col-xs left-border-grey">
-                      <div class="drag-handle">
+                      <div class="drag-handle" cdkDragHandle>
                         <i class="fa fa-bars"></i>
                       </div>
                     </th>
@@ -47,6 +68,17 @@
                   </tr>
                 </tbody>
               </table>
+              <div
+                *ngIf="taskCategory.tasks.length === 0"
+                class="drag-drop-container"
+                cdkDropList
+                [cdkDropListData]="taskCategory.tasks"
+                (cdkDropListDropped)="onDropTaskHandler($event)"
+              >
+                <div class="drag-drop-div">
+                  + Drag Task Templates To This Category
+                </div>
+              </div>
             </td>
           </tr>
         </ng-container>
